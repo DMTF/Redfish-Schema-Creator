@@ -1,0 +1,21 @@
+{
+    "@odata.id": "/redfish/v1/Thingy/1",
+    "@odata.type": "#Thingy.v1_0_0.Thingy",
+    "ThingType": "RackMount | Cheap | Expensive | Obsolete | Trendy",
+    "ThingType!Required": true,
+    "ThingType!Description": "The type of thingy that this thingy is - really...",
+    "ThingType!LongDescription": "A long thingy description...",
+    "IndicatorLED": "Off | Lit | Blinking",
+    "IndicatorLED!ReadWrite": true,
+    "Location": {},
+    "ThingContainer": {
+        "ThingKnob": "Twist",
+        "ThingKnobCount": 6,
+        "ThingButton": {
+            "ButtonColor": "Red",
+            "ButtonColor!Description": "Color of the button.",
+            "ButtonActuation!Required": true,
+            "ButtonActuation": 0.34
+        }
+    }
+}

@@ -1,0 +1,73 @@
+{
+    "@odata.id": "/redfish/v1/Thingy/1",
+    "@odata.type": "#Thingy.v1_0_0.Thingy",
+    "Id": "1",
+    "Name": "Big Thingy",
+    "ThingType": "RackMount | Cheap | Expensive | Obsolete | Trendy",
+    "ThingType!required": true,
+    "ThingType!description": "The type of thingy that this thingy is - really...",
+    "ThingType!longDescription": "A long thingy description...",
+    "ThingType!enumDescriptions": {
+        "RackMount": "tmp",
+        "Cheap": "tmp1",
+        "Expensive": "tmp2",
+        "Obsolete": "tmp3",
+        "Trendy": "tmp4"
+    },
+    "ThingType!enumLongDescriptions": {
+        "RackMount": "tmp5",
+        "Cheap": "tmp6",
+        "Expensive": "tmp7",
+        "Obsolete": "tmp8",
+        "Trendy": "tmp9"
+    },
+    "IndicatorLED": "Off | Lit | Blinking",
+    "IndicatorLED!readonly": false,
+    "SideFumbling": true,
+    "SideFumbling!readonly": false,
+    "Location": {},
+    "LotsOfStuff": [
+        "Red",
+        "Blue",
+        "Purple"
+    ],
+    "LotsOfStuff2": [
+        1,2,3
+    ],
+    "LotsOfStuff3": [
+        "a | b | c"
+    ],
+    "LotsOfStuff4": [
+        {"My_Name": "Doug"}
+    ],
+    "ThingContainer": {
+        "ThingKnob": "Twist",
+        "ThingKnobCount": 5,
+        "ThingButton": {
+            "ButtonColor": "Red",
+            "ButtonColor!description": "Color of the button.",
+            "ButtonActuation!required": true,
+            "ButtonActuation": 0.34
+        }
+    },
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "PCIeSlots": [{
+        "@odata.id": "/redfish/v1/Chassis/1/PCIeSlots"
+    }],
+    "PCIeSlots!link": "PCIeDevice",
+    "Thermal": {
+        "@odata.id": "/redfish/v1/Chassis/1/Thermal"
+    },
+    "Thermal!link": "Thermal",
+    "Power": {
+        "@odata.id": "/redfish/v1/Chassis/1/Power"
+    },
+    "Power!link": "Power",
+    "Power2": {
+        "@odata.id": "/redfish/v1/Chassis/1/Power"
+    },
+    "Power2!link": "Power"
+}
