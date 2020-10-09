@@ -33,7 +33,7 @@ CSDL_HEADER_TEMPLATE = """<!---->
 <!---->
 """
 
-def database_builder(annotated_json):
+def database_builder(annotated_json, csv={}):
     """Transforms annotated json into a dictionary database
     
     :param annotated_json: Annotated json to turn into a dictionary.
@@ -60,7 +60,8 @@ def database_builder(annotated_json):
                 data_base[prop]["type"] = "array"
                 value = value[0]
             if isinstance(value, dict):
-                data_base[prop]["properties"] = database_builder(value)
+                sub_csv = {k.split('/', 1)[1]: s for k, s in csv.items() if prop in k and '/' in k}
+                data_base[prop]["properties"] = database_builder(value, sub_csv)
             elif isinstance(value, str) and '|' in value:
                 #For enum values
                 value = [val.strip() for val in value.split('|') if val]
@@ -68,6 +69,19 @@ def database_builder(annotated_json):
             data_base[prop]["value"] = value
         else:
             data_base[prop][annotation] = value
+    for prop in data_base:
+        if prop in csv:
+            print(prop)
+            data_base[prop]['description'] = csv[prop][0]
+            data_base[prop]['longDescription'] = csv[prop][1]
+            if data_base[prop].get("enum"):
+                csv_enum = csv[prop][2:]
+                print(csv_enum, prop)
+                if data_base[prop].get("enumDescriptions") is None:
+                    data_base[prop]["enumDescriptions"] = {}
+                data_base[prop]["enumDescriptions"].update({e: d for e, d in zip(data_base[prop]["value"], csv_enum)})
+
+
     return data_base
 
 
@@ -165,7 +179,7 @@ def create_property_w_type(property_name, value=None, my_type=None, **kwargs):
 
 class CsdlFile:
     """CSDL file that is created from the passed JSON"""
-    def __init__(self, annotated_json, inherited_prop_list=[]):
+    def __init__(self, annotated_json, inherited_prop_list=[], csv=None):
         self.csdl = None
         self.main_csdl = None
         self.annotated_json = annotated_json
@@ -178,7 +192,7 @@ class CsdlFile:
                if "@" in key:
                    del self._annotation_database[key]
         else:
-           self._annotation_database = database_builder(self.annotated_json)
+           self._annotation_database = database_builder(self.annotated_json, csv)
            self._name = annotated_json['@odata.type']
 
         for item in inherited_prop_list:
@@ -295,11 +309,22 @@ def main():
     except Exception:
         sys.stderr.write("Problem getting file provided")
         return 1
+    
+    csv_dict = {}
 
-    csdl = CsdlFile(json_data, RESOURCE_PROPERTIES)
+    if args.csv:
+        with open(args.csv) as f:
+            csv_reader = csv.reader(f, delimiter='|')
+            for line in csv_reader:
+                csv_dict[line[0]] = line[1:]
+        print(csv_dict)
+
+
+    csdl = CsdlFile(json_data, RESOURCE_PROPERTIES, csv=csv_dict)
     csdl.init_csdl()
     csdl.build_csdl()
     output_xml = csdl.name+'.xml'
+
     with open(output_xml, 'w') as output:
         xml_string = etree.tostring(csdl.main_csdl, encoding="unicode", method="xml")
         xml_obj = xml.dom.minidom.parseString(xml_string)

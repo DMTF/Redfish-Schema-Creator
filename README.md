@@ -88,10 +88,13 @@ The addition of property-level annotations aid in completing the schema creation
 
 A comma-separated variable (CSV) file can be specified as input to provide description text, using the following:
 
-`<property name>, <description>, <long description>`
+`<property name>|<description>|<long description>`
 
 The property name could also provide a JSON path `object/property` or similar style to allow inclusion of properties within embedded objects.
 
+If a property is an EnumType, you may apply descriptions to each Enum by adding further values to a given row:
+
+`<property name>|<description>|<long description>|<enum1desc>|<enum2desc>|...`
 
 ## XML header file
 
