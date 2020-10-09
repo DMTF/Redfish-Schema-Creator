@@ -1,0 +1,8 @@
+ThingType|ShortDesc|LongDesc|Enum1|Enum2
+LotsOfStuff|ShortDesc|LongDesc
+LotsOfStuff2|ShortDesc|LongDesc
+LotsOfStuff3|ShortDesc|LongDesc|Enum1|Enum2|Enum3
+LotsOfStuff4|ShortDesc|LongDesc
+ThingContainer/ThingKnob|ShortInnerDesc|LongInnerDesc
+ThingContainer/ThingButton|HahaButton|HahaButton2
+ThingContainer/ThingButton/ButtonColor|ShortInnerDesc|LongInnerDesc
