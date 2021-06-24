@@ -276,7 +276,7 @@ class CsdlFile:
                 entry.append(create_property(key, "Collection(%s.%s)" % (self.name, key), **kwargs))
             else:
                 entry.append(create_property(key, "%s.%s" % (self.name, key), **kwargs))
-            self.csdl.append(create_enum_property(key, value, descriptors.get("enumDescriptions", None), descriptors.get("enumLongDescriptions", None)))
+            self.csdl.append(create_enum_property(key, descriptors.get("enum"), descriptors.get("enumDescriptions", None), descriptors.get("enumLongDescriptions", None)))
         else:
             entry.append(create_property_w_type(key, value, **kwargs))
 
