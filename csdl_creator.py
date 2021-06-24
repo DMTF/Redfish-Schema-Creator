@@ -65,7 +65,7 @@ def database_builder(annotated_json, csv={}):
             elif isinstance(value, str) and '|' in value:
                 #For enum values
                 value = [val.strip() for val in value.split('|') if val]
-                data_base[prop]["enum"] = True
+                data_base[prop]["enum"] = value
             data_base[prop]["value"] = value
         else:
             data_base[prop][annotation] = value
