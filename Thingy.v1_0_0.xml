@@ -34,7 +34,7 @@
 	<edmx:DataServices>
 		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Thingy">
 			<Annotation Term="Redfish.OwningEntity" String="TBD"/>
-			<EntityType Name="Thingy" BaseType="Resource.v1_0_0.Resource" Abstract="true">
+			<EntityType Name="Thingy" Abstract="true" BaseType="Resource.v1_0_0.Resource">
 				<Annotation Term="OData.Description" String="Parameters for Thingy."/>
 				<Annotation Term="OData.LongDescription" String="Parameters for Thingy."/>
 				<Annotation Term="Capabilities.InsertRestrictions">
@@ -60,8 +60,8 @@
 			<EntityType Name="Thingy" BaseType="Thingy.Thingy">
 				<Property Name="ThingType" Type="Thingy.v1_0_0.ThingType" Nullable="false">
 					<Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-					<Annotation Term="OData.Description" String="ShortDesc"/>
-					<Annotation Term="OData.LongDescription" String="LongDesc"/>
+					<Annotation Term="OData.Description" String="The type of thingy that this thingy is - really..."/>
+					<Annotation Term="OData.LongDescription" String="A long thingy description..."/>
 					<Annotation Term="Redfish.Required"/>
 				</Property>
 				<Property Name="IndicatorLED" Type="Resource.IndicatorLED" Nullable="false">
@@ -81,23 +81,23 @@
 				</Property>
 				<Property Name="LotsOfStuff" Type="Collection(Edm.String)" Nullable="false">
 					<Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-					<Annotation Term="OData.Description" String="ShortDesc"/>
-					<Annotation Term="OData.LongDescription" String="LongDesc"/>
+					<Annotation Term="OData.Description" String="TBD"/>
+					<Annotation Term="OData.LongDescription" String="TBD"/>
 				</Property>
 				<Property Name="LotsOfStuff2" Type="Collection(Edm.Int64)" Nullable="false">
 					<Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-					<Annotation Term="OData.Description" String="ShortDesc"/>
-					<Annotation Term="OData.LongDescription" String="LongDesc"/>
+					<Annotation Term="OData.Description" String="TBD"/>
+					<Annotation Term="OData.LongDescription" String="TBD"/>
 				</Property>
 				<Property Name="LotsOfStuff3" Type="Collection(Thingy.v1_0_0.LotsOfStuff3)" Nullable="false">
 					<Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-					<Annotation Term="OData.Description" String="ShortDesc"/>
-					<Annotation Term="OData.LongDescription" String="LongDesc"/>
+					<Annotation Term="OData.Description" String="TBD"/>
+					<Annotation Term="OData.LongDescription" String="TBD"/>
 				</Property>
 				<Property Name="LotsOfStuff4" Type="Collection(Thingy.v1_0_0.LotsOfStuff4)" Nullable="false">
 					<Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-					<Annotation Term="OData.Description" String="ShortDesc"/>
-					<Annotation Term="OData.LongDescription" String="LongDesc"/>
+					<Annotation Term="OData.Description" String="TBD"/>
+					<Annotation Term="OData.LongDescription" String="TBD"/>
 				</Property>
 				<Property Name="ThingContainer" Type="Thingy.v1_0_0.ThingContainer" Nullable="false">
 					<Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
@@ -133,10 +133,10 @@
 			</EntityType>
 			<EnumType Name="ThingType">
 				<Member Name="RackMount">
-					<Annotation Term="OData.Description" String="Enum1"/>
+					<Annotation Term="OData.Description" String="tmp"/>
 				</Member>
 				<Member Name="Cheap">
-					<Annotation Term="OData.Description" String="Enum2"/>
+					<Annotation Term="OData.Description" String="tmp1"/>
 				</Member>
 				<Member Name="Expensive">
 					<Annotation Term="OData.Description" String="tmp2"/>
@@ -150,18 +150,18 @@
 			</EnumType>
 			<EnumType Name="LotsOfStuff3">
 				<Member Name="a">
-					<Annotation Term="OData.Description" String="Enum1"/>
+					<Annotation Term="OData.Description" String="TBD"/>
 				</Member>
 				<Member Name="b">
-					<Annotation Term="OData.Description" String="Enum2"/>
+					<Annotation Term="OData.Description" String="TBD"/>
 				</Member>
 				<Member Name="c">
-					<Annotation Term="OData.Description" String="Enum3"/>
+					<Annotation Term="OData.Description" String="TBD"/>
 				</Member>
 			</EnumType>
 			<ComplexType Name="LotsOfStuff4" Nullable="false">
-				<Annotation Term="OData.Description" String="ShortDesc"/>
-				<Annotation Term="OData.LongDescription" String="LongDesc"/>
+				<Annotation Term="OData.Description" String="TBD"/>
+				<Annotation Term="OData.LongDescription" String="TBD"/>
 				<Annotation Term="OData.AdditionalProperties" Bool="false"/>
 				<Property Name="My_Name" Type="Edm.String" Nullable="false">
 					<Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
@@ -170,13 +170,13 @@
 				</Property>
 			</ComplexType>
 			<ComplexType Name="ThingButton" Nullable="false">
-				<Annotation Term="OData.Description" String="HahaButton"/>
-				<Annotation Term="OData.LongDescription" String="HahaButton2"/>
+				<Annotation Term="OData.Description" String="TBD"/>
+				<Annotation Term="OData.LongDescription" String="TBD"/>
 				<Annotation Term="OData.AdditionalProperties" Bool="false"/>
 				<Property Name="ButtonColor" Type="Edm.String" Nullable="false">
 					<Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-					<Annotation Term="OData.Description" String="ShortInnerDesc"/>
-					<Annotation Term="OData.LongDescription" String="LongInnerDesc"/>
+					<Annotation Term="OData.Description" String="Color of the button."/>
+					<Annotation Term="OData.LongDescription" String="TBD"/>
 				</Property>
 				<Property Name="ButtonActuation" Type="Edm.Decimal" Nullable="false">
 					<Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
@@ -191,8 +191,8 @@
 				<Annotation Term="OData.AdditionalProperties" Bool="false"/>
 				<Property Name="ThingKnob" Type="Edm.String" Nullable="false">
 					<Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-					<Annotation Term="OData.Description" String="ShortInnerDesc"/>
-					<Annotation Term="OData.LongDescription" String="LongInnerDesc"/>
+					<Annotation Term="OData.Description" String="TBD"/>
+					<Annotation Term="OData.LongDescription" String="TBD"/>
 				</Property>
 				<Property Name="ThingKnobCount" Type="Edm.Int64" Nullable="false">
 					<Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
@@ -201,8 +201,8 @@
 				</Property>
 				<Property Name="ThingButton" Type="Thingy.v1_0_0.ThingButton" Nullable="false">
 					<Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-					<Annotation Term="OData.Description" String="HahaButton"/>
-					<Annotation Term="OData.LongDescription" String="HahaButton2"/>
+					<Annotation Term="OData.Description" String="TBD"/>
+					<Annotation Term="OData.LongDescription" String="TBD"/>
 				</Property>
 			</ComplexType>
 		</Schema>
