@@ -256,6 +256,10 @@ class CsdlFile:
             if "link" in descriptors:
                 kwargs = {}
                 kwargs['schema_name'] = descriptors['link']
+                if 'description' in descriptors:
+                    kwargs['description'] = descriptors['description']
+                if 'longDescription' in descriptors:
+                    kwargs['longDescription'] = descriptors['longDescription']
                 if not any([descriptors['link'] in x.attrib.get('Uri', '').split('/')[-1] for x in self.main_csdl]):
                     my_node = xml_convenience.add_reference(None, None, descriptors['link'])
                     self.main_csdl.insert(3, my_node)
