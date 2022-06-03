@@ -119,3 +119,11 @@ Default text:
 * "***TBD***" strings for Description and LongDescription text if not found in payload or CSV
 * "***TBD***" names for linked schemas and types if not provided in annotations.
 * Generic description/longDescription for links based on existing Redfish style
+
+## Release Process
+
+1. Go to the "Actions" page
+2. Select the "Release and Publish" workflow
+3. Click "Run workflow"
+4. Fill out the form
+5. Click "Run workflow"
