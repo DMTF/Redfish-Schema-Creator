@@ -1,5 +1,8 @@
 # Change Log
 
+## [0.9.7] - 2022-08-09
+- Fixed import and references to 'create_navigation' 
+
 ## [0.9.6] - 2022-06-03
 - Added override support for 'description' and 'longDescription' when '!link' annotation is used.
 
