@@ -4,7 +4,7 @@
 
 import pytest
 import lxml.etree
-from csdl_creator import CsdlFile, database_builder, create_navegation, create_property, create_enum_property
+from csdl_creator import CsdlFile, database_builder, create_navigation, create_property, create_enum_property
 
 TEST_FULL_DATA = {
     "@odata.id": "/redfish/v1/Thingy/1",
@@ -50,22 +50,22 @@ def built_csdlfile_class():
 class TestPropertyCreators:
     """Strongly tests the property entry creation functions"""
     def test_nav_tbd_schema(self):
-        entry = create_navegation('ThingyHolder')
+        entry = create_navigation('ThingyHolder')
         assert(entry.tag == "NavigationProperty" and entry.get("Type") == "TBD.TBD" and entry.get("Nullable") == 'false' and entry.get("Name") == "ThingyHolder")
 
     def test_nav_named_schema(self):
-        entry = create_navegation('ThingyHolder', schema_name="SchemaName")
+        entry = create_navigation('ThingyHolder', schema_name="SchemaName")
         assert(entry.tag == "NavigationProperty" and entry.get("Type") == "SchemaName.SchemaName" and entry.get("Nullable") == 'false' and entry.get("Name") == "ThingyHolder")
 
     def test_nav_description(self):
-        description = create_navegation('ThingyHolder', description="This is a description.")
-        default_description = create_navegation('ThingyHolder')
+        description = create_navigation('ThingyHolder', description="This is a description.")
+        default_description = create_navigation('ThingyHolder')
         assert((description.tag == "NavigationProperty" and description.find("OData.Description").get("String") == "This is a description.") and\
                (default_description.tag == "NavigationProperty" and default_description.find("OData.Description").get("String") == "A link to ThingyHolder"))
 
     def test_nav_long_description(self):
-        long_description = create_navegation('ThingyHolder', long_description="This is a long description.")
-        default_long_description = create_navegation('ThingyHolder')
+        long_description = create_navigation('ThingyHolder', long_description="This is a long description.")
+        default_long_description = create_navigation('ThingyHolder')
         assert((long_description.tag == "NavigationProperty" and long_description.find("OData.LongDescription").get("String") == "This is a long description.") and\
                (default_long_description.tag == "NavigationProperty" and default_long_description.find("OData.LongDescription").get("String") == "This property shall be a link to a resource collection of type ThingyHolder."))
 
