@@ -8,6 +8,11 @@ The most efficient method of crafting a new schema has been to first create a mo
 
 This utility will read a JSON document and using the Redfish conventions and some optional annotations, output a "mostly complete" CSDL Redfish schema file.  In addition, as typing the Description and LongDescription text can be cumbersome within a CSDL document, and may have been written in a spreadsheet or other tool prior to schema creation, the utility will also merge a CSV file to incorporate description text into the schema output.
 
+## Requirements
+
+The Redfish Schema Creator requires Python version 3.
+
+No external packages are required.
 
 ## Usage
 
