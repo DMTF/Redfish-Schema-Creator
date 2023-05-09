@@ -3,7 +3,6 @@
 # License: BSD 3-Clause License. For full text see link: https://github.com/DMTF/Redfish-Schema-Creator/blob/main/LICENSE.md
 
 import pytest
-import lxml.etree
 from csdl_creator import CsdlFile, database_builder, create_navigation, create_property, create_enum_property
 
 TEST_FULL_DATA = {
