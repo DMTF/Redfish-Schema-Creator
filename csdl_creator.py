@@ -7,7 +7,6 @@ import sys
 import csv
 import json
 import argparse
-import lxml
 import xml_convenience
 import xml.dom.minidom
 import xml.etree.ElementTree as etree
